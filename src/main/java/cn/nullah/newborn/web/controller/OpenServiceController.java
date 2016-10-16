@@ -21,9 +21,10 @@ public class OpenServiceController {
 
 	@RequestMapping("{svcId}")
 	@ResponseBody
-	public void doService(@PathVariable int svcId,@Valid  @RequestBody OpenSvcReqText reqText) {
+	public String doService(@PathVariable int svcId,@Valid  @RequestBody OpenSvcReqText reqText) {
 		logger.info("服务id:{},报文内容:{}"+JSONObject.toJSONString(reqText));
 		reqText.setSvcId(svcId);
+		return "操作成功";
 	}
 
 	@RequestMapping("test")
