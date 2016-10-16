@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- 配置Run As Maven build : Goals 参数 : mybatis-generator:generate -Dmybatis.generator.overwrite=true -->
+<!-- 配置 tableName,使用 Run As Maven build 生成 dao model 层 -->
+<generatorConfiguration>
+	<!-- 配置文件路径 -->
+	<!-- <properties url="D:\workspace\mpos\interf\20160222-uinpay-mpos-no-card\uinpay-mpos\uinpay-mpos-server\uinpay-mpos-server-opencore\generatorConfig.properties"/> -->
+	<properties resource="generatorConfig.properties" />
+
+	<!--数据库驱动包路径 -->
+	<classPathEntry location="${drive.class.path}" />
+
+	<!-- <context id="DB2Tables" targetRuntime="Ibatis2Java5"> -->
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+
+		<!--关闭注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		
+		<!--数据库连接信息 -->
+		<jdbcConnection driverClass="${jdbc.driverClassName}"
+			connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}">
+		</jdbcConnection>
+
+<!-- 		<javaTypeResolver type="cn.uinpay.GenTypeResolver"> -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!--生成的model 包路径 -->
+		<javaModelGenerator targetPackage="${model.package}" targetProject="${target.project}">
+			<property name="enableSubPackages" value="ture" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--生成xml mapper文件 路径 -->
+		<sqlMapGenerator targetPackage="${xml.mapper.package}" targetProject="${target.project}">
+			<property name="enableSubPackages" value="ture" />
+		</sqlMapGenerator>
+
+		<!-- 生成的Dao接口 的包路径  mapper-->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="${dao.package}" 
+			targetProject="${target.project}">
+		<property name="enableSubPackages" value="ture"/>
+		</javaClientGenerator> 
+
+		<table tableName="USER_INFO" schema="test" domainObjectName="User"  alias="u"
+			enableInsert="true"  
+			enableDeleteByExample="true" enableDeleteByPrimaryKey="true"
+			enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
+			enableSelectByExample="true" enableCountByExample="true"
+			enableSelectByPrimaryKey="true">
+			<!-- <generatedKey column="id" identity="" /> -->
+		</table>
+
+	</context>
+</generatorConfiguration>

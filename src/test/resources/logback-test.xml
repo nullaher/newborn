@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true">
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 日志输出编码 -->
+		<Encoding>UTF-8</Encoding>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %level [%thread] %replace(%caller{1}){'[\s]',' '}:%m%n</pattern>
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+<!-- 			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} -%msg%n</pattern> -->
+		</encoder>
+	</appender>
+
+<!-- 	<logger name="cn.nullah.newborn" additivity="false"> -->
+<!-- 		<level value="debug" /> -->
+<!-- 		<appender-ref ref="stdout" /> -->
+<!-- 	</logger> -->
+
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
+
