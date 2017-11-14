@@ -21,7 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <input type="submit" value="上传" >  
     </form>   
 	<script type="text/javascript">
-	    j = 1;  
 	    $(document).ready(function(){  
 	        $("#addRowBtn").click(function(){  
 	            addNewUploadRow('newUploadRow'+(j++));
