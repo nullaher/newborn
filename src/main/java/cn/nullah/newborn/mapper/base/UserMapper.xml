@@ -33,6 +33,7 @@
     from user_info u
     where u.USER_ID = #{userId,jdbcType=BIGINT}
   </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from user_info
     where USER_ID = #{userId,jdbcType=BIGINT}
@@ -90,6 +91,7 @@
       <include refid="base.Example_Where_Clause" />
     </if>
   </select>
+  
   <update id="updateByExampleSelective" parameterType="map">
     update user_info u
     <set>
